@@ -53,7 +53,6 @@ function UpdateUser() {
       setAvatar(data.avata_url)
       setEmail(data.email);
     }).catch((err)=> {
-      // thêm lỗi
     });
   };
 
@@ -65,8 +64,6 @@ function UpdateUser() {
 
     if (selectedFile) {
       setAvatar(selectedFile);
-
-      // xử lý hiển thị ảnh (preview)
       const reader = new FileReader();
       reader.onloadend = () => {
         setAvatar(reader.result as string);
@@ -91,12 +88,8 @@ function UpdateUser() {
 
   const handleOpenCamera = async () => {
     setOpenCamera(true);
-
-    // xử lý bật camera
     try {
       const constraints = { video: true };
-
-      // của trình duyệt
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
 
       if (videoRef.current) {
